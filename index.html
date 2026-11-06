@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>السعودي | مهندس حلول برمجية ومطور مواقع وبوتات</title>
-    <!-- استدعاء خطوط التيرمينال الحديثة -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,7 +14,6 @@
             --text-color: #f3f4f6;
             --accent-green: #10b981;
             --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
         }
 
         * {
@@ -26,7 +24,6 @@
 
         body {
             background-color: var(--bg-color);
-            /* صورة خلفية برمجية مع طبقة مظلمة لضمان وضوح النصوص */
             background-image: 
                 linear-gradient(to bottom, rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.92)),
                 url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1920&auto=format&fit=crop');
@@ -45,7 +42,6 @@
             margin: 0 auto;
         }
 
-        /* نافذة التيرمينال بستايل الزجاج (Glassmorphism) */
         .terminal-box {
             background: var(--terminal-bg);
             backdrop-filter: blur(12px);
@@ -55,7 +51,7 @@
             margin-bottom: 30px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.1);
             overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .terminal-box:hover {
@@ -71,15 +67,12 @@
             font-family: 'Fira Code', monospace;
             font-size: 13px;
             color: #94a3b8;
-            display: flex;
-            align-items: center;
         }
 
         .terminal-header::before {
             content: "🔴 🟡 🟢";
             margin-left: 12px;
             font-size: 10px;
-            letter-spacing: 3px;
         }
 
         .terminal-body {
@@ -91,7 +84,6 @@
             font-family: 'Fira Code', monospace;
             font-size: 14px;
             margin-bottom: 15px;
-            text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
         }
 
         h1 {
@@ -99,12 +91,15 @@
             font-size: 26px;
             margin-bottom: 12px;
             font-weight: 700;
-            background: linear-gradient(to right, #fff, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        /* النموذج والمدخلات */
+        h2 {
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-family: 'Fira Code', monospace;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -115,7 +110,6 @@
             font-family: 'Fira Code', monospace;
             font-size: 13px;
             margin-bottom: 8px;
-            font-weight: 600;
         }
 
         .terminal-input {
@@ -142,7 +136,6 @@
             color: var(--text-color);
         }
 
-        /* زر الإرسال مع ايفكت النيون والتوهج */
         .terminal-btn {
             width: 100%;
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
@@ -156,61 +149,32 @@
             transition: all 0.3s ease;
             margin-top: 15px;
             font-size: 16px;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
         }
 
         .terminal-btn:hover {
             background: var(--accent-green);
             color: #030712;
             box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* حركة خفيفة لظهور العناصر */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .terminal-box {
-            animation: fadeIn 0.6s ease-out forwards;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <!-- مقدمة الموقع -->
         <div class="terminal-box">
-            <div class="terminal-header">
-                <span>profile.sh</span>
-            </div>
+            <div class="terminal-header">profile.sh</div>
             <div class="terminal-body">
                 <div class="command-line">guest@alsaudi:~$ cat about_me.txt</div>
                 <h1>مهندس حلول برمجية | السعودي 🚀</h1>
-                <p style="margin-top: 10px; color: #94a3b8; font-size: 15px;">
-                    أقوم بتطوير المواقع، بوتات الديسكورد المتقدمة، وتطبيقات وأنظمة الكافيهات والشركات بأعلى أداء وجودة.
-                </p>
+                <p style="color: #94a3b8; font-size: 15px;">أقوم بتطوير المواقع، بوتات الديسكورد المتقدمة، وتطبيقات وأنظمة الكافيهات والشركات بأعلى أداء وجودة.</p>
             </div>
         </div>
 
-        <!-- فورم طلب المشروع -->
         <div class="terminal-box" id="hire">
-            <div class="terminal-header">
-                <span>new_project_request.sh</span>
-            </div>
+            <div class="terminal-header">new_project_request.sh</div>
             <div class="terminal-body">
                 <div class="command-line">guest@alsaudi:~$ ./start_project.sh</div>
-                <h2 style="color: var(--accent-green); margin-bottom: 10px; font-size: 18px; font-family: 'Fira Code', monospace;">
-                    [ 🚀 اطلب مشروعك الآن ]
-                </h2>
-                <p style="font-size: 14px; margin-bottom: 25px; color: #94a3b8;">
-                    املأ البيانات أدناه، وسيتم توجيه طلبك فوراً لمناقشة التفاصيل والبدء في التنفيذ:
-                </p>
+                <h2>[ 🚀 اطلب مشروعك الآن ]</h2>
+                <p style="font-size: 14px; margin-bottom: 25px; color: #94a3b8;">املأ البيانات أدناه، وسيتم توجيه طلبك فوراً لمناقشة التفاصيل والبدء في التنفيذ:</p>
 
                 <form id="projectForm" onsubmit="sendToWhatsApp(event)">
                     <div class="form-group">
@@ -231,51 +195,38 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">[3] تفاصيل ووصف المشروع (الميزات المطلوبة):</label>
-                        <textarea id="projectDetails" class="terminal-input" rows="4" placeholder="اشرح فكرة المشروع بالتفصيل والأوامر أو الميزات التي تحتاجها..." required></textarea>
+                        <label class="form-label">[3] تفاصيل ووصف المشروع:</label>
+                        <textarea id="projectDetails" class="terminal-input" rows="4" placeholder="اشرح فكرة المشروع بالتفصيل..." required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">[4] الميزانية المتوقعة (Budget):</label>
-                        <input type="text" id="projectBudget" class="terminal-input" placeholder="مثال: $100 - $300 أو بالعملة المحلية">
+                        <input type="text" id="projectBudget" class="terminal-input" placeholder="مثال: $100 - $300">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">[5] وسيلة التواصل المفضلة ورقمك/حسابك:</label>
+                        <label class="form-label">[5] وسيلة التواصل ورقمك:</label>
                         <input type="text" id="clientContact" class="terminal-input" placeholder="حساب Discord أو رقم WhatsApp" required>
                     </div>
 
-                    <button type="submit" class="terminal-btn">
-                        <span>EXECUTE_REQUEST.SH</span> 🚀 (إرسال الطلب عبر WhatsApp)
-                    </button>
+                    <button type="submit" class="terminal-btn">EXECUTE_REQUEST.SH 🚀 (إرسال الطلب عبر WhatsApp)</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- كود إرسال البيانات للواتساب -->
     <script>
         function sendToWhatsApp(event) {
             event.preventDefault(); 
-
             const myPhoneNumber = "201039375955"; 
-
             const name = document.getElementById('clientName').value;
             const type = document.getElementById('projectType').value;
             const details = document.getElementById('projectDetails').value;
             const budget = document.getElementById('projectBudget').value || 'غير محددة';
             const contact = document.getElementById('clientContact').value;
 
-            const message = `*طلب مشروع جديد من موقع السعودي 🚀*\n\n` +
-                            `👤 *الاسم:* ${name}\n` +
-                            `💻 *نوع الخدمة:* ${type}\n` +
-                            `📝 *التفاصيل:* ${details}\n` +
-                            `💰 *الميزانية المتوقعة:* ${budget}\n` +
-                            `📞 *وسيلة التواصل:* ${contact}\n\n` +
-                            `---\n*تم استخراج هذه البيانات تلقائياً من موقعك البرمجي*`;
-
-            const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            const message = `*طلب مشروع جديد من موقع السعودي 🚀*\n\n👤 *الاسم:* ${name}\n💻 *نوع الخدمة:* ${type}\n📝 *التفاصيل:* ${details}\n💰 *الميزانية:* ${budget}\n📞 *التواصل:* ${contact}`;
+            window.open(`https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
