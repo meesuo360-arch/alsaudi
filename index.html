@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>السعودي | مهندس حلول برمجية ومطور مواقع وبوتات</title>
-    <!-- استدعاء خطوط التيرمينال -->
+    <!-- استدعاء خطوط التيرمينال الحديثة -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --terminal-bg: #0d1117;
-            --terminal-border: #30363d;
-            --text-color: #c9d1d9;
-            --accent-green: #3fb950;
-            --accent-blue: #58a6ff;
-            --border-color: #30363d;
+            --bg-color: #030712;
+            --terminal-bg: rgba(17, 24, 39, 0.75);
+            --border-color: rgba(59, 130, 246, 0.2);
+            --border-glow: rgba(59, 130, 246, 0.5);
+            --text-color: #f3f4f6;
+            --accent-green: #10b981;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
         }
-        
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,48 +25,65 @@
         }
 
         body {
-            background-color: var(--terminal-bg);
+            background-color: var(--bg-color);
+            /* خلفية بتدرجات ذكية وتأثير شبكة برمجية (Grid) فخمة */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
             color: var(--text-color);
             font-family: 'Tajawal', 'Fira Code', monospace;
-            padding: 20px;
+            padding: 30px 20px;
+            min-height: 100vh;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
-        /* تصميم نافذة التيرمينال */
+        /* نافذة التيرمينال بستايل الزجاج (Glassmorphism) */
         .terminal-box {
-            background-color: #161b22;
-            border: 1px solid var(--terminal-border);
-            border-radius: 6px;
+            background: var(--terminal-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.1);
             overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .terminal-box:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(59, 130, 246, 0.25);
+            transform: translateY(-2px);
         }
 
         .terminal-header {
-            background-color: #21262d;
-            padding: 10px 15px;
-            border-bottom: 1px solid var(--terminal-border);
+            background: rgba(15, 23, 42, 0.9);
+            padding: 12px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-family: 'Fira Code', monospace;
             font-size: 13px;
-            color: #8b949e;
+            color: #94a3b8;
             display: flex;
             align-items: center;
         }
 
         .terminal-header::before {
             content: "🔴 🟡 🟢";
-            margin-left: 10px;
+            margin-left: 12px;
             font-size: 10px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
         .terminal-body {
-            padding: 25px;
+            padding: 30px;
         }
 
         .command-line {
@@ -72,68 +91,93 @@
             font-family: 'Fira Code', monospace;
             font-size: 14px;
             margin-bottom: 15px;
-        }
-
-        /* تنسيق النموذج */
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-label {
-            display: block;
-            color: var(--accent-blue);
-            font-family: 'Fira Code', monospace;
-            font-size: 13px;
-            margin-bottom: 6px;
-        }
-
-        .terminal-input {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 12px;
-            color: var(--text-color);
-            font-family: 'Tajawal', 'Fira Code', monospace;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .terminal-input:focus {
-            border-color: var(--accent-green);
-            box-shadow: 0 0 8px rgba(63, 185, 80, 0.2);
-        }
-
-        .terminal-input option {
-            background-color: var(--terminal-bg);
-            color: var(--text-color);
-        }
-
-        .terminal-btn {
-            width: 100%;
-            background: transparent;
-            border: 1px solid var(--accent-green);
-            color: var(--accent-green);
-            padding: 14px;
-            border-radius: 4px;
-            font-family: 'Fira Code', monospace;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
-            margin-top: 10px;
-            font-size: 15px;
-        }
-
-        .terminal-btn:hover {
-            background: var(--accent-green);
-            color: #0d1117;
+            text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
         }
 
         h1 {
             color: #fff;
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 26px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* النموذج والمدخلات */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: #60a5fa;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .terminal-input {
+            width: 100%;
+            background-color: rgba(3, 7, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 14px;
+            color: var(--text-color);
+            font-family: 'Tajawal', 'Fira Code', monospace;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .terminal-input:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+            background-color: rgba(3, 7, 18, 0.9);
+        }
+
+        .terminal-input option {
+            background-color: #0f172a;
+            color: var(--text-color);
+        }
+
+        /* زر الإرسال مع ايفكت النيون والتوهج */
+        .terminal-btn {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 16px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-size: 16px;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .terminal-btn:hover {
+            background: var(--accent-green);
+            color: #030712;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* حركة خفيفة لظهور العناصر */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .terminal-box {
+            animation: fadeIn 0.6s ease-out forwards;
         }
     </style>
 </head>
@@ -148,7 +192,9 @@
             <div class="terminal-body">
                 <div class="command-line">guest@alsaudi:~$ cat about_me.txt</div>
                 <h1>مهندس حلول برمجية | السعودي 🚀</h1>
-                <p style="margin-top: 10px; color: #8b949e;">أقوم بتطوير المواقع، بوتات الديسكورد المتقدمة، وتطبيقات وأنظمة الكافيهات والشركات بأعلى أداء وجودة.</p>
+                <p style="margin-top: 10px; color: #94a3b8; font-size: 15px;">
+                    أقوم بتطوير المواقع، بوتات الديسكورد المتقدمة، وتطبيقات وأنظمة الكافيهات والشركات بأعلى أداء وجودة.
+                </p>
             </div>
         </div>
 
@@ -159,8 +205,12 @@
             </div>
             <div class="terminal-body">
                 <div class="command-line">guest@alsaudi:~$ ./start_project.sh</div>
-                <h2 style="color: var(--accent-green); margin-bottom: 10px; font-size: 18px;">[ 🚀 اطلب مشروعك الآن ]</h2>
-                <p style="font-size: 14px; margin-bottom: 20px;">املأ البيانات أدناه، وسيتم توجيه طلبك فوراً لمناقشة التفاصيل والبدء في التنفيذ:</p>
+                <h2 style="color: var(--accent-green); margin-bottom: 10px; font-size: 18px; font-family: 'Fira Code', monospace;">
+                    [ 🚀 اطلب مشروعك الآن ]
+                </h2>
+                <p style="font-size: 14px; margin-bottom: 25px; color: #94a3b8;">
+                    املأ البيانات أدناه، وسيتم توجيه طلبك فوراً لمناقشة التفاصيل والبدء في التنفيذ:
+                </p>
 
                 <form id="projectForm" onsubmit="sendToWhatsApp(event)">
                     <div class="form-group">
@@ -206,29 +256,24 @@
     <!-- كود إرسال البيانات للواتساب -->
     <script>
         function sendToWhatsApp(event) {
-            event.preventDefault(); // منع إعادة تحميل الصفحة
+            event.preventDefault(); 
 
-            // ⚠️ [مهم]: استبدل الرقم التالي برقم واتسابك الحقيقي بالكود الدولي وبدون علامة + (مثال: 9665xxxxxxxx أو 2010xxxxxxxx)
             const myPhoneNumber = "201039375955"; 
 
-            // جلب القيم من الفورم
             const name = document.getElementById('clientName').value;
             const type = document.getElementById('projectType').value;
             const details = document.getElementById('projectDetails').value;
             const budget = document.getElementById('projectBudget').value || 'غير محددة';
             const contact = document.getElementById('clientContact').value;
 
-            // صياغة رسالة المشروع الكاملة
-            const message = 
-                `*طلب مشروع جديد من موقع السعودي 🚀*\n\n` +
-                `👤 *الاسم:* ${name}\n` +
-                `💻 *نوع الخدمة:* ${type}\n` +
-                `📝 *التفاصيل:* ${details}\n` +
-                `💰 *الميزانية المتوقعة:* ${budget}\n` +
-                `📞 *وسيلة التواصل:* ${contact}\n\n` +
-                `---\n*تم استخراج هذه البيانات تلقائياً من موقعك البرمجي*`;
+            const message = `*طلب مشروع جديد من موقع السعودي 🚀*\n\n` +
+                            `👤 *الاسم:* ${name}\n` +
+                            `💻 *نوع الخدمة:* ${type}\n` +
+                            `📝 *التفاصيل:* ${details}\n` +
+                            `💰 *الميزانية المتوقعة:* ${budget}\n` +
+                            `📞 *وسيلة التواصل:* ${contact}\n\n` +
+                            `---\n*تم استخراج هذه البيانات تلقائياً من موقعك البرمجي*`;
 
-            // فتح رابط الواتساب مباشر بالرسالة
             const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
